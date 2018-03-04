@@ -1,0 +1,155 @@
+/*********************
+ *
+ * DEFAULT STYLES
+ *
+ ********************/
+.slider-wrapper {
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: 900px;
+	max-width: 100%;
+}
+.extra-slider {
+	width: 100%;
+}
+img {
+	display: block;
+}
+/*********************
+ *
+ * NAVIGATION
+ *
+ ********************/
+.slider-wrapper .navigation {
+	position: static;
+}
+.slider-wrapper .navigation a { /* modifie les propriétés des boutons pour changer photo*/
+	background: #ffffff none center center no-repeat; /* modifie la couleur du rond pour changer photo*/
+	background-size: 15px 20px;
+	border: 1px solid #d43f3a; /*modifie la couleur du contour du rond*/
+	display: block;
+	-webkit-border-radius: 35px;
+	border-radius: 35px;
+	overflow: hidden;
+	margin-top: -35px;
+	position: absolute;
+	top: 50%;
+	z-index: 50;
+	text-indent: 100%;
+	white-space: nowrap;
+	width: 70px;
+	height: 70px;
+
+}
+.slider-wrapper .navigation a:hover {
+	background-color: #ffffff;
+}
+.slider-wrapper .navigation .prev { /*décale le bouton gauche*/
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAcCAMAAABbGh8VAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAvVBMVEUAAAAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAAAADXuIvaAAAAPXRSTlMALrsWMuzWGTfv2R088b9B9N0fR/XYG0z41RhS+c8VWPvMEl78xg9jwg1p/r0KcLh3swd5sQZztwlrvGX9RwaDgwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACdSURBVCjPbdJXDsJADATQpdfQews9oYTeg+9/LYSNvA7yfD5pJXu8xsjE4gkTTTIF6UxEsjkAyBeEFB34pmSlXEGp1ljqDZRmi6XdQen2WPoDlOGIxR2jTKYssznKYsnikfgrlvUGZRuw7Ej2Vg4IcDzZoc9El6tY7UYP7w9hT7JXICx8/w+hjaotpK2tlaNVqBWtnUM7mnba3wf4AGFkJ/RhcoelAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTAzLTE0VDE3OjUzOjQzKzAxOjAwoRtOzwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0wMy0xNFQxNzo1Mzo0MyswMTowMNBG9nMAAAAASUVORK5CYII=');
+	left: 20px;
+}
+.slider-wrapper .navigation .next {
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAeBAMAAAA84DghAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAHlBMVEUAAAAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAAAADxwc6qAAAACHRSTlMAA6ChR/5vbiOi6p0AAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAATElEQVQY02NgYBRggAEhRRiLUaMJJizc0QETdu3ogAmzRSCEU+kjXNrR0QxhsgMVGFJFMBUuyIYQdIULgjxvCAsSC5ggUBgmyIAIPgDftSz9jAO8HAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNC0wMy0xNFQxNzo1Mzo1MCswMTowMFxZVMwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTQtMDMtMTRUMTc6NTM6NTArMDE6MDAtBOxwAAAAAElFTkSuQmCC');
+	right: 20px;
+}
+/*********************
+ *
+ * PAGINATION
+ *
+ ********************/
+.slider-wrapper .pagination {
+	margin: 0 0 0 0;
+	position: absolute;
+	left: 50%;
+	bottom: 6px;
+	text-align: center;
+	z-index: 50;
+	width: auto;
+}
+.slider-wrapper .pagination a {
+	background: #ffffff; /* modifie la couleur des cercles de la photo non sélectionnée*/
+	border: 2px solid transparent;
+	color: transparent;
+	display: inline-block;
+	margin: 0 4px;
+	text-indent: 100%;
+	white-space: nowrap;
+	position: relative;
+	left: -50%;
+	width: 12px;
+	height: 12px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+.slider-wrapper .pagination a.extra-slider-link-active {
+	background-color: #d43f3a; /*modifie la couleur du cercle de la photo en cours de visionnage*/
+}
+.slider-wrapper .pagination a:hover {
+	border-color: #303030;
+}
+/*********************
+ *
+ * CONTENT
+ *
+ ********************/
+.extra-slider-item {
+	margin: auto;
+	width: 100%;
+}
+.extra-slider-item img {
+	max-width: 100%;
+	height: auto;
+}
+.extra-slider-item p {
+	color: #ffff00;
+	font-size: 12px;
+	font-family: Georgia, serif;
+	font-style: italic;
+	margin: 0;
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+	text-align: right;
+}
+.extra-slider-item p a {
+	color: #fffff;
+	background: transparent;
+	text-decoration: none;
+}
+.extra-slider-item p a:hover {
+	color: #9999ff;
+	background: transparent;
+	text-decoration: underline;
+}
+/*********************
+ *
+ * RESPONSIVE
+ *
+ ********************/
+@media only screen and (max-width: 960px) {
+	.slider-wrapper .navigation a {
+		background-size: 20%;
+		margin-top: -20px;
+		width: 40px;
+		height: 40px;
+	}
+	.slider-wrapper .navigation .next {
+		right: 20px;
+	}
+	.slider-wrapper .navigation .prev {
+		left: 20px;
+	}
+	#margin .navigation .next {
+		margin-left: auto;
+	}
+	#margin .navigation .prev {
+		left: 20px;
+		margin-left: auto;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.slider-wrapper .pagination {
+		display: none;
+	}
+}
