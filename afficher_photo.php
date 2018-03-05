@@ -47,6 +47,8 @@ if($compteur !== 0) {
         BDD::addpicutreBDD($image, $moyLat, $moyLng, $city, $country, $endroit, $description);
         photo::deplacephoto($ii, $city, $country, $image);
     }
+
 }
+header('Location: dropzone.php');
 
 

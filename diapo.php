@@ -38,7 +38,7 @@ if (isset($_GET['variable']) AND isset($_GET['id'])) {
         <div class="pagination"></div>
     </div>
 
-    <script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.js"></script>
+    <script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"></script>
     <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/TweenMax.min.js"></script>
     <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/utils/Draggable.min.js"></script>
     <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/plugins/ScrolltoPlugin.min.js"></script>

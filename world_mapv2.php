@@ -123,7 +123,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=<?=API_KEY?>&callback=initMap">
 </script>
-<script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.js"> </script>
+<script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
 
 <script src="JS/AJAX/libs/Jquery/3.3.1/JQuery.js" type="text/javascript"></script>
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
