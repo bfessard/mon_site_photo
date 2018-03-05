@@ -92,36 +92,22 @@ class GPS{
     }
 }
 
-class photo{
-    public static function deplacephoto($i,$ville, $pays, $image){
+class photo
+{
+    public static function deplacephoto($i, $ville, $pays, $image)
+    {
 
-        if(empty(glob("pictures/$pays"))&&empty(glob("pictures/$pays/$ville")))
-        {
+        if (empty(glob("pictures/$pays")) && empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays");
             mkdir("pictures/$pays/$ville");
             var_dump("pictures/$pays/$ville/$image[$i]");
-            rename("pictures/import/$image[$i]","pictures/$pays/$ville/$image[$i]");
-        }elseif(empty(glob("pictures/$pays/$ville"))){
-            mkdir("pictures/$pays/$ville",0700);
-        }else{
-            if(!glob("pictures/$pays/$ville/$image[$i]"))
-            {
+            rename("pictures/import/$image[$i]", "pictures/$pays/$ville/$image[$i]");
+        } elseif (empty(glob("pictures/$pays/$ville"))) {
+            mkdir("pictures/$pays/$ville", 0700);
+        } else {
+            if (!glob("pictures/$pays/$ville/$image[$i]")) {
                 rename("pictures/import/$image[$i]", "pictures/$pays/$ville/$image[$i]");
             }
-        }
-    }
-
-    public static function uploadphotos(){
-        if (!empty($_FILES)) {
-
-            $tempFile = $_FILES['file']['tmp_name'];          //3
-
-            $targetPath = __DIR__.'/pictures/import/';  //4
-
-            $targetFile =  $targetPath. $_FILES['file']['name'];  //5
-
-            move_uploaded_file($tempFile,$targetFile); //6
-
         }
     }
 }
