@@ -17,10 +17,12 @@
 <!-- 3 -->
 <form action="upload.php" class="dropzone"></form>
 
-<form action="afficher_photo.php" method="post">
-    <p><input type="text" id="endroit"> </p>
-    <p><textarea name="ameliorer" id="description"></textarea></p>
-    <p><input type="submit" value="Envoyer" /></p>
+<form method="post" action="afficher_photo.php" >
+    <p>
+        <label>Endroit</label> : <input type="text" name="endroit" id="endroit"></br>
+        <label>Description</label> : <textarea name="description" id="description" rows ="10" cols="50"></textarea> </br>
+        <input type="submit" value="Envoyer" />
+    </p>
 </form>
 
 </body>
