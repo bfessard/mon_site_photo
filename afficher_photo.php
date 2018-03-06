@@ -46,6 +46,7 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
         for ($ii = 0; $ii < count($image); $ii++) {
 
             BDD::addpicutreBDD($image, $moyLat, $moyLng, $city, $country, $endroit, $description);
+            photo::compressphoto($ii,$image);
             photo::deplacephoto($ii, $city, $country, $image);
         }
 

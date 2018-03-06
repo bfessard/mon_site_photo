@@ -110,4 +110,10 @@ class photo
             }
         }
     }
+    public static function compressphoto($ii,$image){
+        $img = imagecreatefromjpeg("pictures/import/".$image[$ii]);
+        imagejpeg($img,"pictures/import/$image[$ii]",50);
+    }
+
+}
 }
