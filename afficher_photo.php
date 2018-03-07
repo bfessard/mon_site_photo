@@ -5,7 +5,7 @@ include('fcts_bdd.php');
 if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
     // recherche le fichier et compte le nombre de photo
-    $files = glob("pictures/import/*.*");
+    $files = glob(__DIR__.'pictures/import/*.*');
     $compteur = count($files);
 
     // récupération des noms de photos avec coordonées GPS
