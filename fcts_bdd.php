@@ -13,9 +13,7 @@ class BDD{
     }
 
 
-    public static function addpicutreBDD($image,$moyLat,$moyLng,$city,$country,$endroit,$description){
-        $bdd =BDD::appelBDD();
-
+    public static function addpicutreBDD($bdd, $image,$moyLat,$moyLng,$city,$country,$endroit,$description){
         for($i=0;$i<=count($image)-1;$i++){
 
             $reponse =$bdd->prepare("SELECT count(*) AS nbr FROM information WHERE image=?");
