@@ -10,7 +10,6 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
    var monTableauJs = <?=json_encode($tableauGPS);?>;
    var API_KEY = <?=json_encode(API_KEY);?>;
-   console.log(API_KEY);
    var data=[];
    var n=0;
     while(n<monTableauJs.length){
@@ -125,7 +124,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 </script>
 <script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
 
-<script src="JS/AJAX/libs/Jquery/3.3.1/JQuery.js" type="text/javascript"></script>
+
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
 
 
