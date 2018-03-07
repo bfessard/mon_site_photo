@@ -68,7 +68,7 @@ class GPS{
     public static function findcity($moyLat, $moyLng)
     {
         $test = GPS::file_get_contents($moyLat, $moyLng);
-        var_dump($test);
+        
         $count = count($test['results']['0']['address_components']);
         for ($a = 0; $a < $count; $a++) {
             if ($test['results']['0']['address_components'][$a]['types']['0'] == "locality") {
