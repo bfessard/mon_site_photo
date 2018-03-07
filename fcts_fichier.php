@@ -114,6 +114,4 @@ class photo
         $img = imagecreatefromjpeg("pictures/import/".$image[$ii]);
         imagejpeg($img,"pictures/import/$image[$ii]",50);
     }
-
-}
 }
