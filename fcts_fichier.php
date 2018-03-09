@@ -58,8 +58,14 @@ class GPS{
     }
 
     public static function file_get_contents($moyLat, $moyLng){
-        $return = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng=' . $moyLat . ',' . $moyLng . '&sensor=true_or_false&key=AIzaSyACcynPu83SEga6WA9DTJFnGbFg-LDC_Z0');
-
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+        $return = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=' . $moyLat . ',' . $moyLng . '&sensor=true_or_false&key=AIzaSyACcynPu83SEga6WA9DTJFnGbFg-LDC_Z0',false,stream_context_create($arrContextOptions));
+        var_dump($return);
         $test = json_decode($return, true);
         return $test;
 
@@ -101,7 +107,7 @@ class photo
         if (empty(glob("pictures/$pays")) && empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays");
             mkdir("pictures/$pays/$ville");
-            var_dump("pictures/$pays/$ville/$image[$i]");
+
             rename("pictures/import/$image[$i]", "pictures/$pays/$ville/$image[$i]");
         } elseif (empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays/$ville", 0700);
