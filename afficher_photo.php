@@ -8,7 +8,7 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
     // recherche le fichier et compte le nombre de photo
     $files = glob('pictures/import/*.*');
     $compteur = count($files);
-
+    
     // récupération des noms de photos avec coordonées GPS
     $ligne = 0;
     if ($compteur !== 0) {
@@ -17,19 +17,20 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
         while ($file = readdir($d)) {
+
             if($file !==".gitkeep") {
                 $tableau[] = $file;
             }
         }
-        for ($i = 1; $i <= $compteur + 1; $i++) {
+        for ($i = 1; $i <= $compteur+1 ; $i++) {
             $mystring = $tableau[$i];
-            var_dump($mystring);
+
+
             if (strpos($mystring, ".JPG") !== false OR strpos($mystring, ".PNG") !== false) {
                 $imageURL = "pictures/import/$tableau[$i]";
 
 
                 $imgLocation = GPS::get_image_location($imageURL);
-                var_dump($imgLocation);
 
                 if (isset($imgLocation['latitude'])) {
                     $image[] = $tableau[$i];
@@ -60,6 +61,6 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
     }
 }
-//header('Location: dropzone.php');
+header('Location: dropzone.php');
 
 
