@@ -60,6 +60,6 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
     }
 }
-//header('Location: dropzone.php');
+header('Location: dropzone.php');
 
 
