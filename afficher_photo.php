@@ -28,6 +28,7 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
                 $imgLocation = GPS::get_image_location($imageURL);
+                var_dump($imgLocation);
 
                 if (isset($imgLocation['latitude'])) {
                     $image[] = $tableau[$i];
