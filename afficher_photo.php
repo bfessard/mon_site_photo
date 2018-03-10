@@ -17,12 +17,13 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
         while ($file = readdir($d)) {
-            $tableau[] = $file;
-
+            if($file !==".gitkeep") {
+                $tableau[] = $file;
+            }
         }
         for ($i = 1; $i <= $compteur + 1; $i++) {
             $mystring = $tableau[$i];
-
+            var_dump($mystring);
             if (strpos($mystring, ".JPG") !== false OR strpos($mystring, ".PNG") !== false) {
                 $imageURL = "pictures/import/$tableau[$i]";
 
@@ -59,6 +60,6 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
     }
 }
-header('Location: dropzone.php');
+//header('Location: dropzone.php');
 
 
