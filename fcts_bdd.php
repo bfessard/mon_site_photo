@@ -56,7 +56,7 @@ class BDD{
     }
 
     public static function findpictures($bdd, $variable) {
-        $reponse = $bdd->query('SELECT * FROM information WHERE city=\''. $variable .'\'');
+        $reponse = $bdd->query('SELECT * FROM information WHERE endroit=\''. $variable .'\'');
         return $reponse;
     }
 }

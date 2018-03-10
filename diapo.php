@@ -1,10 +1,11 @@
 <?php
 include('const.inc.php');
 include ('fcts_bdd.php');
-if (isset($_GET['variable']) AND isset($_GET['id'])) {
 
+if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
     $bdd = BDD::appelBDD();
     $reponse = BDD::findpictures($bdd, $_GET['variable']);
+
     ?>
 
 

@@ -42,9 +42,11 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
         $city = GPS::findcity($moyLat, $moyLng);
-        var_dump($city);
+
         $country = GPS::findcountry($moyLat, $moyLng);
-        $endroit = $_POST['endroit'];
+
+        $endroit = str_replace(' ','_',$_POST['endroit']);
+        var_dump($endroit);
         $description = $_POST['description'];
 
         for ($ii = 0; $ii < count($image); $ii++) {

@@ -83,10 +83,16 @@ $tableauGPS=BDD::selectallBDD($bdd);
                     map: map,
                     title: place.endroit
                 });
+                function replaceAll(machaine, chaineARemaplacer, chaineDeRemplacement) {
+                    return machaine.replace(new RegExp(chaineARemaplacer, 'g'),chaineDeRemplacement);
+                }
+                var machaine = place.endroit;
 
-                var contenuInfoBulle ="<h1>"+ place.endroit + "</h1>" +
+                machaine = machaine.replace('_',' ');
+                console.log(place.endroit);
+                var contenuInfoBulle ="<h1>"+ replaceAll(machaine,'_',' ')+ "</h1>" +
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
-                    +'<p align="justify" class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.city+'&id='+place.id+'">Voir les photos</button>';
+                    +'<p align="justify" class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
 
                 var infowindow = new google.maps.InfoWindow({
                     content: contenuInfoBulle
