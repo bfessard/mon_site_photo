@@ -89,7 +89,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
                 var machaine = place.endroit;
 
                 machaine = machaine.replace('_',' ');
-                console.log(place.endroit);
+                
                 var contenuInfoBulle ="<h1>"+ replaceAll(machaine,'_',' ')+ "</h1>" +
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
                     +'<p align="justify" class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
