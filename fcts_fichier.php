@@ -65,7 +65,6 @@ class GPS{
             ),
         );
         $return = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng=' . $moyLat . ',' . $moyLng . '&sensor=true_or_false&key=AIzaSyACcynPu83SEga6WA9DTJFnGbFg-LDC_Z0',false,stream_context_create($arrContextOptions));
-        var_dump($return);
         $test = json_decode($return, true);
         return $test;
 
