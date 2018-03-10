@@ -46,7 +46,6 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
         $country = GPS::findcountry($moyLat, $moyLng);
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
-        var_dump($endroit);
         $description = $_POST['description'];
 
         for ($ii = 0; $ii < count($image); $ii++) {
