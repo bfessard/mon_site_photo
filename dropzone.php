@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+$files = glob('pictures/import/*.*');    
+$compteur = count($files);
+if($compteur !==1){
 $ouverture=opendir(__DIR__ . '/pictures/import');
 while (false !== ($fichier = readdir($repertoire)))
 {
@@ -9,6 +12,7 @@ if($fichier != ".gitkeep")
 }
 }
 closedir($repertoire);
+}
 ?>
 
 <head>
