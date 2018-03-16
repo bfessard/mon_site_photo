@@ -1,23 +1,9 @@
 <!DOCTYPE html>
-<?php
-$files = glob('pictures/import/*.*');    
-$compteur = count($files);
-if($compteur !==1){
-$ouverture=opendir(__DIR__ . '/pictures/import');
-while (false !== ($fichier = readdir($repertoire)))
-{
-    $chemin = __DIR__ . '/pictures/import/'.$fichier; 
-if($fichier != ".gitkeep")
-{       unlink($chemin);
-}
-}
-closedir($repertoire);
-}
-?>
 
-<head>
+
     <html lang="en">
     <head>
+        <?php$files = glob('pictures/import/*.*');    $compteur = count($files);if($compteur !==1){$ouverture=opendir(__DIR__ . '/pictures/import');while (false !== ($fichier = readdir($repertoire))){    $chemin = __DIR__ . '/pictures/import/'.$fichier; if($fichier != ".gitkeep"){       unlink($chemin);}}closedir($repertoire);}?>
         <meta charset="UTF-8">
         <title></title>
     <link href="CSS/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
