@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+$ouverture=opendir(__DIR__ . '/pictures/import');
+while (false !== ($fichier = readdir($repertoire)))
+{
+    $chemin = __DIR__ . '/pictures/import/'.$fichier; 
+if($fichier != ".gitkeep")
+{       unlink($chemin);
+}
+}
+closedir($repertoire);
+?>
 
 <head>
     <html lang="en">
