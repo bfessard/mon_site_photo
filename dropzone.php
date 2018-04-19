@@ -28,11 +28,6 @@ include('fcts_bdd.php');
     </p>
 </form>
 <p>nombre de photos dans import : <?php  echo photo::compteur() ;?> </p> <form><input type="button" value="supprimer" onclick="<?php photo::delete(); ?>"></form>
-<!--
-<form method="post"action="delete.php">
-    <input type="submit" value="supprimer">
-</form>
-</body>
--->
+
 </html>
 
