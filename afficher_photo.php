@@ -2,12 +2,12 @@
 include('const.inc.php');
 include('fcts_fichier.php');
 include('fcts_bdd.php');
-if(isset($_POST['endroit']) & isset($_POST['description'])) {
+//if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
     // recherche le fichier et compte le nombre de photo
-    $files = glob('pictures/import/*.*');
-    $compteur = count($files);
+    $compteur= photo::compteur();
+
     
     // récupération des noms de photos avec coordonées GPS
     $ligne = 0;
@@ -47,6 +47,8 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
         $city = GPS::findcity($moyLat, $moyLng);
 
         $country = GPS::findcountry($moyLat, $moyLng);
+        var_dump($city);
+        var_dump($country);
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
         $description = $_POST['description'];
@@ -60,7 +62,7 @@ if(isset($_POST['endroit']) & isset($_POST['description'])) {
         }
 
     }
-}
+//}
 header('Location: dropzone.php');
 
 

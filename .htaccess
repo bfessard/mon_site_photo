@@ -1,9 +1,9 @@
-<Files dropzone.php>
+﻿<Files dropzone.php>
 AuthName "Page d'administration protégée"
 
 AuthType Basic
 
-AuthUserFile "/home/baptistefessard/www/.htpasswd"
+AuthUserFile "D:\wamp64\www\mon_site_photo\.htpasswd"
 
 Require valid-user
 </Files>

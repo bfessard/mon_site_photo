@@ -121,4 +121,26 @@ class photo
         $img = imagecreatefromjpeg("pictures/import/".$image[$ii]);
         imagejpeg($img,"pictures/import/$image[$ii]",50);
     }
+
+    public static function compteur(){
+        $files = glob('pictures/import/*.*');
+        $compteur = count($files);
+        return $compteur;
+    }
+    public static function delete(){
+       $repertoire = opendir(__DIR__.'/pictures/import');
+        while($fichier =readdir($repertoire)){
+            if($fichier !=".." and $fichier !="." and $fichier !=".gitkeep"){
+                var_dump($fichier);
+                unlink('pictures/import/'.$fichier);
+            }
+        }
+    closedir($repertoire);
+
+
+
+
+
+    }
 }
+

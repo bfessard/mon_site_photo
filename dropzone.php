@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-
+<?php
+include('fcts_fichier.php');
+include('fcts_bdd.php');
+?>
 <head>
     <html lang="en">
     <head>
@@ -24,7 +27,12 @@
         <input type="submit" value="Envoyer" />
     </p>
 </form>
-
+<p>nombre de photos dans import : <?php  echo photo::compteur() ;?> </p> <form><input type="button" value="supprimer" onclick="<?php photo::delete(); ?>"></form>
+<!--
+<form method="post"action="delete.php">
+    <input type="submit" value="supprimer">
+</form>
 </body>
-
+-->
 </html>
+
