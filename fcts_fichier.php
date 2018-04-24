@@ -128,7 +128,7 @@ class photo
         return $compteur;
     }
     public static function delete(){
-       $repertoire = opendir(__DIR__.'/pictures/import');
+       $repertoire = opendir(__DIR__.'/pictures/import/');
         while($fichier =readdir($repertoire)){
             if($fichier !=".." and $fichier !="." and $fichier !=".gitkeep"){
                 var_dump($fichier);
@@ -136,11 +136,81 @@ class photo
             }
         }
     closedir($repertoire);
+    }
+}
+class option{
+    public static function numeroImage($numpic){
 
+    if($numpic <=5){
+        $numpic = $numpic + 1;
+        return $numpic;
+    }
+    else{
+        $numpic = 1;
+        return $numpic;
+    }
+}
+    public static function GenerrateArticle($donnees, $numpic){
 
+        echo '<article class="style'.$numpic.'">
+                    <span class="image">
+                        <img src="pictures/phantom/pic0'.$numpic.'.jpg" alt="" />
+                    </span>
+                    <a href="generic.php?country='.$donnees.'">
+                        <h2>' . $donnees. '</h2>
+                        <div class="content">
+                            <p>Voir et modifier les photos : ' . $donnees. '</p>
+                        </div>
+                    </a>
+                </article>';
+    }
 
+    public static function Menu($reponse){
+        $elements =array(
+            array('href'=>'option.php','nom'=>'HOME'),
+            array('href'=>'generic.php?variable=1','nom'=>'UPLOAD PHOTO', 'use'=>'Ajouter des photos'),
+            array('href'=>'generic.php?variable=2','nom'=>'VIDER DOSSIER IMPORT ('.  photo::compteur().' photo(s))','use'=>'Supprime les photos qui sont dans le dossier import'),
+            array('href'=>'generic.php?variable=3','nom'=>'BASE DE DONNEE', 'use'=>'afficher et modifier la base de donnée')
+        );
+        while($donnees = $reponse->fetch()){
+            $elements[] = array('href' => 'generic.php?country=' . $donnees['country'] . '',
+                    'nom' => strtoupper($donnees['country']),
+                    'use' => 'Voir et modifier les photos : ' . strtoupper($donnees['country']) . '');
+        }
+        return $elements;
+    }
+
+    public static function tableauCity($reponse, $country){
+        $elements=array();
+
+            while ($donnees = $reponse->fetch()) {
+
+                $elements[] = array('href' => 'generic.php?country=' . $country . '&amp;city=' . $donnees['city'] . '',
+                    'nom' => strtoupper($donnees['city']),
+                    'use' => 'Voir et modifier les photos : ' . strtoupper($donnees['city']) . '');
+            }
+
+        return $elements;
+
+    }
+
+    public static function tableauImage($valeur, $country, $city)
+    {
+        $elements = array();
+        While ($donnees = $valeur->fetch()) {
+            $elements[] = array(
+
+                'nom' => $donnees['image'],
+                'cible' => 'pictures/' . $country . '/' . $city . '/' . $donnees['image'] . '',
+                'endroit' => str_replace('_', ' ', $donnees['endroit']),
+                'description' => $donnees['description']
+
+            );
+        }
+
+        return $elements;
 
 
     }
-}
 
+}

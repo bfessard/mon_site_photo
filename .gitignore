@@ -2,5 +2,6 @@ const.inc.php
 *.jpg
 .idea
 .htpasswd
+
 !.gitkeep
 !sample.jpg

@@ -8,10 +8,10 @@ include('fcts_bdd.php');
     <head>
         <meta charset="UTF-8">
         <title></title>
-    <link href="CSS/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
+    <link href="assets/CSS/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
 
     <!-- 2 -->
-    <script src="JS/dropzone/dropzone.js"></script>
+    <script src="assets/JS/dropzone/dropzone.js"></script>
 
 </head>
 

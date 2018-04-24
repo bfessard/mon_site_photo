@@ -32,7 +32,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 </script>
 
 
-    <link rel="stylesheet" href="CSS/map/world_map_css.css" />
+    <link rel="stylesheet" href="assets/CSS/map/world_map_css.css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="featherlight-1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet"/>
@@ -123,12 +123,12 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
 </script>
 
-<script src="JS/GoogleMapsAPI/markerclusterer.js">
+<script src="assets/JS/GoogleMapsAPI/markerclusterer.js">
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=<?=API_KEY?>&callback=initMap">
 </script>
-<script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
+<script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
 
 
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>

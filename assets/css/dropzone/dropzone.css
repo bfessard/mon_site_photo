@@ -2,6 +2,81 @@
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
  */
+
+  .dropzone{
+    min-height: 295px;
+    width:490px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px;
+  }
+
+@media screen and (max-width: 1680px) {
+
+  .dropzone{
+  min-height: 255px;
+    min-width:430px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  background: deepskyblue; /*modification couleur fond dropzone*/
+  padding: 20px 20px;
+  }
+
+}
+@media screen and (max-width: 1280px) {
+
+  .dropzone{
+    min-height: 220px;
+    min-width: 365px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px;
+  }
+
+}
+@media screen and (max-width: 980px) {
+  .dropzone{
+    min-height: 185px;
+    min-width: 365px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px; }
+
+}
+
+@media screen and (max-width: 736px) {
+
+  .dropzone{
+    height: auto;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px;
+  }
+
+}
+@media screen and (max-width: 480px) {
+
+  .dropzone{
+    height: 150px;
+    width: 250px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+
+  .dropzone{
+    height: 150px;
+    width: 100px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: deepskyblue; /*modification couleur fond dropzone*/
+    padding: 20px 20px;
+  }
+
+}
+
 @-webkit-keyframes passing-through {
   0% {
     opacity: 0;
@@ -173,11 +248,7 @@
 .dropzone, .dropzone * {
   box-sizing: border-box; }
 
-.dropzone {
-  min-height: 150px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  background: deepskyblue; /*modification couleur fond dropzone*/
-  padding: 20px 20px; }
+
   .dropzone.dz-clickable {
     cursor: pointer; }
     .dropzone.dz-clickable * {

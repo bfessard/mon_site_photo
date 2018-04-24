@@ -38,11 +38,13 @@ class BDD{
 
     }
     public static function selectallBDD($bdd){
-        $reponse = $bdd->query("SELECT * FROM information");
+
+        $reponse = $bdd->query("SELECT  * FROM information  ORDER BY  id ASC ");
 
         while($donnees = $reponse ->fetch())
         {
-            $tableauGPS[] = array($donnees['id'],
+            $tableauGPS[] = array(
+                $donnees['id'],
                 $donnees['lat'],
                 $donnees['lng'],
                 $donnees['country'],
@@ -52,6 +54,7 @@ class BDD{
                 $donnees['image']);
 
         }
+
         return $tableauGPS;
     }
 
@@ -59,6 +62,26 @@ class BDD{
         $reponse = $bdd->query('SELECT * FROM information WHERE endroit=\''. $variable .'\'');
         return $reponse;
     }
+    public static function selectcountryBDD($bdd)
+    {
+        $reponse = $bdd->query("SELECT DISTINCT country FROM information ORDER BY country  ASC ");
+        return $reponse;
+    }
+    public static function selectcityBDD($bdd, $country){
+
+        $reponse = $bdd->query('SELECT DISTINCT city FROM information WHERE country=\''.$country.'\'ORDER BY city ASC');
+        return $reponse;
+    }
+    public static function selectimage($bdd,$city){
+        $reponse =$bdd->query('SELECT image, endroit, description FROM information WHERE city=\''.$city.'\'ORDER BY image ASC');
+        return $reponse;
+    }
+
+    public static function selectValue($bdd,$nom){
+        $reponse =$bdd->query('SELECT image, city, country, endroit, description FROM information WHERE image=\''.$nom.'\'');
+        return $reponse;
+    }
+
 }
 
 

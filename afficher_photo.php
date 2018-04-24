@@ -63,6 +63,6 @@ include('fcts_bdd.php');
 
     }
 //}
-header('Location: dropzone.php');
+header('Location: option.php');
 
 

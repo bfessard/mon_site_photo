@@ -15,8 +15,8 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="CSS/slider/extra.slider.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/slider/diapo_css.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/CSS/slider/extra.slider.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/CSS/slider/diapo_css.css" rel="stylesheet" type="text/css"/>
 
 
     </head>
@@ -39,12 +39,12 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
         <div class="pagination"></div>
     </div>
 
-    <script type="text/javascript" src="JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"></script>
-    <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/TweenMax.min.js"></script>
-    <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/utils/Draggable.min.js"></script>
-    <script type="text/javascript" src="JS/AJAX/libs/gsap/1.18.5/plugins/ScrolltoPlugin.min.js"></script>
-    <script type="text/javascript" src="JS/sliders/js/simple.js"></script>
-    <script type="text/javascript" src="JS/extra.slider/js/extra.slider.js"></script>
+    <script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"></script>
+    <script type="text/javascript" src="assets/JS/AJAX/libs/gsap/1.18.5/TweenMax.min.js"></script>
+    <script type="text/javascript" src="assets/JS/AJAX/libs/gsap/1.18.5/utils/Draggable.min.js"></script>
+    <script type="text/javascript" src="assets/JS/AJAX/libs/gsap/1.18.5/plugins/ScrolltoPlugin.min.js"></script>
+    <script type="text/javascript" src="assets/JS/sliders/js/simple.js"></script>
+    <script type="text/javascript" src="assets/JS/extra.slider/js/extra.slider.js"></script>
 
     </body>
 
