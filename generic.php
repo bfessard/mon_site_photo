@@ -200,8 +200,7 @@ $bdd = BDD::appelBDD();
                         <header><h1><?php echo $donnees['image'];?></h1></header>
                         <p>
                                     <span class="image left">
-                                        <img src="<?php $chemin='pictures/'.$donnees['country'].'/'.$donnees['city'].'/'.$_GET['nom'].'';
-                                         if(is_file($chemin)){echo $chemin;}//else{//echo 'pictures/phantom/pic06.jpg';} ?>" alt="">
+                                        <img src="<? echo 'pictures/'.$donnees['country'].'/'.$donnees['city'].'/'.$_GET['nom'].''; ?>" alt="">
                                     </span>
 
 

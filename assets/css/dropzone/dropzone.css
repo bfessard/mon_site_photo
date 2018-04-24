@@ -5,7 +5,8 @@
 
   .dropzone{
     min-height: 295px;
-    width:490px;
+    border-radius : 4px;
+    min-width:490px;
     border: 2px solid rgba(0, 0, 0, 0.3);
     background: deepskyblue; /*modification couleur fond dropzone*/
     padding: 20px 20px;

@@ -51,7 +51,7 @@
 
                     <li><a href="<?php echo $element['href'];?>"><?php echo $element['nom'];?></a></li>
                 <?php }
-                $reponse ->closeCursor();
+
                 ?>
             </ul>
         </nav>
@@ -82,7 +82,7 @@
                     </article>
 
            <?php $numeroImage = option::numeroImage($numeroImage); }}
-            $reponse ->closeCursor();?>
+            ;?>
             </section>
         </div>
     </div>

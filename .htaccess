@@ -1,5 +1,5 @@
-ï»¿<Files option.php>
-AuthName "Page d'administration protÃ©gÃ©e"
+<Files option.php>
+AuthName "Page d'administration protégée"
 
 AuthType Basic
 

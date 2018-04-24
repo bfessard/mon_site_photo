@@ -2337,11 +2337,11 @@
 		}
 
 		.image.left, .image.right {
-			max-width: 120%;
+			width: 100%;
 		}
 
 			.image.left img, .image.right img {
-				width: 100%;;
+				width: 100%;
 			}
 
 		.image.left {
