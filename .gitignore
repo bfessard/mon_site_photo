@@ -1,7 +1,9 @@
 const.inc.php
 *.jpg
+*.JPG
 .idea
 .htpasswd
+
 !pic01.jpg
 !pic02.jpg
 !pic03.jpg

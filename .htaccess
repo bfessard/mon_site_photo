@@ -3,7 +3,7 @@ AuthName "Page d'administration protégée"
 
 AuthType Basic
 
-AuthUserFile "/home/baptistefessard/www/.htpasswd"
+AuthUserFile "/home/baptistefessard/www/mesvoyages/.htpasswd"
 
 Require valid-user
 </Files>
