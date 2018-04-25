@@ -1,4 +1,4 @@
-<Files option.php>
+<Files dropzone.php>
 AuthName "Page d'administration protégée"
 
 AuthType Basic
