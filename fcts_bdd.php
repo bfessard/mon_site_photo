@@ -14,16 +14,16 @@ class BDD{
 
 
     public static function addpicutreBDD($bdd, $image,$moyLat,$moyLng,$city,$country,$endroit,$description){
-        for($i=0;$i<=count($image)-1;$i++){
+
 
             $reponse =$bdd->prepare("SELECT count(*) AS nbr FROM information WHERE image=?");
-            $reponse->execute(array($image[$i]));
+            $reponse->execute(array($image));
             $req = $reponse->fetch(PDO::FETCH_ASSOC);
 
             if($req['nbr']==0){
                 $req=$bdd->prepare('INSERT INTO information(image, lat, lng, city, country, endroit, description) VALUES(:image,:lat,:lng,:city,:country,:endroit,:description)');
                 $req ->execute(array(
-                    'image'=>$image[$i],
+                    'image'=>$image,
                     'lat'=>$moyLat,
                     'lng'=>$moyLng,
                     'city'=>$city,
@@ -33,9 +33,6 @@ class BDD{
 
                 ));
             }
-
-        }
-
     }
     public static function selectallBDD($bdd){
 

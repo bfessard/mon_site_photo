@@ -146,7 +146,7 @@ class photo
         $tableau=[];
         while ($file = readdir($d)) {
 
-            if($file !==".gitkeep") {
+            if($file !==".gitkeep" and $file!=='.' and $file!=='..') {
                 $tableau[] = $file;
             }
         }

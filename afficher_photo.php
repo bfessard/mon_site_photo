@@ -15,13 +15,16 @@ include('fcts_bdd.php');
 
         $tableau = photo::CreateTableImage();
 
-        for ($i = 2; $i <= $compteur+1 ; $i++) {
+
+        for ($i = 0; $i <= $compteur-1 ; $i++) {
 
             $mystring = $tableau[$i];
 
 
+
             if (strpos($mystring, ".JPG") !== false OR strpos($mystring, ".PNG") !== false) {
                 $imageURL = "pictures/import/$tableau[$i]";
+
 
 
                 $imgLocation = GPS::get_image_location($imageURL);
@@ -55,7 +58,6 @@ include('fcts_bdd.php');
         }
 
     }
-//}
 header('Location: option.php');
 
 

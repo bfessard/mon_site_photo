@@ -8,17 +8,15 @@ if(isset($_GET['value'])){
 
     if(isset($_GET['image']) and $_GET['value']='Reupload'){
         $Newimage = photo::CreateTableImage();
-        var_dump($_GET['image']);
-        var_dump($Newimage);
-        var_dump(asort($Newimage));
-        if($Newimage[2] !== $_GET['image']) {
-            BDD::replaceImage($bdd, $Newimage[1], $_GET['image']);
+
+        if($Newimage[0] !== $_GET['image']) {
+            BDD::replaceImage($bdd, $Newimage[0], $_GET['image']);
         }
-        photo::compressphoto(2,$Newimage[2]);
-        photo::deplacephoto(2,$_GET['city'],$_GET['country'] ,$Newimage[2]);
+        photo::compressphoto(0,$Newimage[0]);
+        photo::deplacephoto(0,$_GET['city'],$_GET['country'] ,$Newimage[0]);
     }
 }
-
+header('Location: option.php');
 ?>
 
 
