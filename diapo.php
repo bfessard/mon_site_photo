@@ -15,8 +15,8 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="assets/CSS/slider/extra.slider.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/CSS/slider/diapo_css.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/slider/extra.slider.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/slider/diapo_css.css" rel="stylesheet" type="text/css"/>
 
 
     </head>

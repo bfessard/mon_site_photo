@@ -90,9 +90,9 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
                 machaine = machaine.replace('_',' ');
                 
-                var contenuInfoBulle ='<div id="InfoBulle"> <h1>'+ replaceAll(machaine,'_',' ')+ "</h1>" +
+                var contenuInfoBulle ='<h1>'+ replaceAll(machaine,'_',' ')+ "</h1>" +
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
-                    +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button></div>';
+                    +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
 
                 var infowindow = new google.maps.InfoWindow({
                     content: contenuInfoBulle
