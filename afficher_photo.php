@@ -49,9 +49,9 @@ include('fcts_bdd.php');
         for ($i = 0; $i < count($image); $i++) {
             $bdd = BDD::appelBDD();
 
-            BDD::addpicutreBDD($bdd,$image, $moyLat, $moyLng, $city, $country, $endroit, $description);
-            photo::compressphoto($i,$image);
-            photo::deplacephoto($i, $city, $country, $image);
+            BDD::addpicutreBDD($bdd,$image[$i], $moyLat, $moyLng, $city, $country, $endroit, $description);
+            photo::compressphoto($i,$image[$i]);
+            photo::deplacephoto($i, $city, $country, $image[$i]);
         }
 
     }

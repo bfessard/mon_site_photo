@@ -113,6 +113,7 @@ class photo
             rename("pictures/import/$image", "pictures/$pays/$ville/$image");
         } elseif (empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays/$ville", 0700);
+            rename("pictures/import/$image", "pictures/$pays/$ville/$image");
         } else {
             if (glob("pictures/$pays/$ville")) {
                 rename("pictures/import/$image", "pictures/$pays/$ville/$image");
