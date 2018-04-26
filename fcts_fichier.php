@@ -143,7 +143,7 @@ class photo
     public static function CreateTableImage(){
         $d = opendir(__DIR__ . '/pictures/import');
 
-
+        $tableau=[];
         while ($file = readdir($d)) {
 
             if($file !==".gitkeep") {
