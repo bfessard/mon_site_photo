@@ -53,5 +53,5 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
 }
 else
 {
-    echo '<meta http-equiv="refresh" content="1;url=worldmap_v2.php"/>';
+    echo '<meta http-equiv="refresh" content="1;url=index.php"/>';
 }

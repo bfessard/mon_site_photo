@@ -212,7 +212,7 @@ $bdd = BDD::appelBDD();
 
                                         </li>
                                         <li>
-                                            <a class="button small icon fa-trash">SUPPRIMER PHOTO</a>
+                                            <a href="dropzone.php?value=delete&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php echo $donnees['country'];?>&amp;city=<?php echo $donnees['city'];?>" class="button small icon fa-trash">SUPPRIMER PHOTO</a>
                                         </li>
                                     </ul>
 
