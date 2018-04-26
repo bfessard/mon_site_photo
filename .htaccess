@@ -1,9 +1,9 @@
-<Files option.php>
+<Files blop.php>
 AuthName "Page d'administration protégée"
 
 AuthType Basic
 
-AuthUserFile "/home/baptistefessard/www/mesvoyages/.htpasswd"
+AuthUserFile "D:/wamp64/wwww/mon_site_photo/.htpasswd"
 
 Require valid-user
 </Files>

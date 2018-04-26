@@ -15,6 +15,7 @@ class GPS{
     {
         $exif = exif_read_data($image, 0, true);
 
+
         if($exif && isset($exif['GPS']['GPSLatitude']))
         {
             $GPSLatitudeRef = $exif['GPS']['GPSLatitudeRef'];
@@ -104,22 +105,23 @@ class photo
     public static function deplacephoto($i, $ville, $pays, $image)
     {
 
+
         if (empty(glob("pictures/$pays")) && empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays");
             mkdir("pictures/$pays/$ville");
 
-            rename("pictures/import/$image[$i]", "pictures/$pays/$ville/$image[$i]");
+            rename("pictures/import/$image", "pictures/$pays/$ville/$image");
         } elseif (empty(glob("pictures/$pays/$ville"))) {
             mkdir("pictures/$pays/$ville", 0700);
         } else {
-            if (!glob("pictures/$pays/$ville/$image[$i]")) {
-                rename("pictures/import/$image[$i]", "pictures/$pays/$ville/$image[$i]");
+            if (glob("pictures/$pays/$ville")) {
+                rename("pictures/import/$image", "pictures/$pays/$ville/$image");
             }
         }
     }
-    public static function compressphoto($ii,$image){
-        $img = imagecreatefromjpeg("pictures/import/".$image[$ii]);
-        imagejpeg($img,"pictures/import/$image[$ii]",50);
+    public static function compressphoto($i,$image){
+        $img = imagecreatefromjpeg("pictures/import/".$image);
+        imagejpeg($img,"pictures/import/$image",50);
     }
 
     public static function compteur(){
@@ -136,6 +138,19 @@ class photo
             }
         }
     closedir($repertoire);
+    }
+    public static function CreateTableImage(){
+        $d = opendir(__DIR__ . '/pictures/import');
+
+
+        while ($file = readdir($d)) {
+
+            if($file !==".gitkeep") {
+                $tableau[] = $file;
+            }
+        }
+
+        return $tableau;
     }
 }
 class option{
@@ -177,7 +192,9 @@ class option{
                     'nom' => strtoupper($donnees['country']),
                     'use' => 'Voir et modifier les photos : ' . strtoupper($donnees['country']) . '');
         }
+
         return $elements;
+
     }
 
     public static function tableauCity($reponse, $country){
@@ -207,7 +224,6 @@ class option{
 
             );
         }
-
         return $elements;
 
 

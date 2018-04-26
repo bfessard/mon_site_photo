@@ -32,7 +32,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 </script>
 
 
-    <link rel="stylesheet" href="assets/CSS/map/world_map_css.css" />
+    <link rel="stylesheet" href="assets/css/map/world_map_css.css" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="featherlight-1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet"/>
@@ -51,7 +51,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
     </style>
 </head>
 <body>
-<div id="map"></div>
+<div id="map">
 <script>
     var myLatLng;
     var place=[];
@@ -90,9 +90,9 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
                 machaine = machaine.replace('_',' ');
                 
-                var contenuInfoBulle ="<h1>"+ replaceAll(machaine,'_',' ')+ "</h1>" +
+                var contenuInfoBulle ='<div id="InfoBulle"> <h1>'+ replaceAll(machaine,'_',' ')+ "</h1>" +
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
-                    +'<p align="justify" class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
+                    +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button></div>';
 
                 var infowindow = new google.maps.InfoWindow({
                     content: contenuInfoBulle
@@ -122,7 +122,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
 
 </script>
-
+</div>
 <script src="assets/JS/GoogleMapsAPI/markerclusterer.js">
 </script>
 <script async defer

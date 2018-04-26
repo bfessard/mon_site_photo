@@ -82,6 +82,10 @@ class BDD{
         return $reponse;
     }
 
+    public static function replaceImage($bdd,$newImage, $oldImage){
+        $bdd->exec('UPDATE information SET image=\''.$newImage.'\' WHERE image=\''.$oldImage.'\'');
+    }
+
 }
 
 

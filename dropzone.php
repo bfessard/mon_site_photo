@@ -1,33 +1,22 @@
-<!DOCTYPE html>
+
 <?php
 include('fcts_fichier.php');
 include('fcts_bdd.php');
+include('const.inc.php');
+$bdd=BDD::appelBDD();
+if(isset($_GET['value'])){
+    if(isset($_GET['image']) and $_GET['Reupload']='Reupload'){
+        $Newimage = photo::CreateTableImage();
+
+
+        if($Newimage[2] !== $_GET['image']) {
+            BDD::replaceImage($bdd, $Newimage[2], $_GET['image']);
+        }
+        photo::compressphoto(2,$Newimage[2]);
+        photo::deplacephoto(2,$_GET['city'],$_GET['country'] ,$Newimage[2]);
+    }
+}
+header('Location: option.php');
 ?>
-<head>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    <link href="assets/CSS/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
 
-    <!-- 2 -->
-    <script src="assets/JS/dropzone/dropzone.js"></script>
-
-</head>
-
-<body>
-
-<!-- 3 -->
-<form action="upload.php" class="dropzone"></form>
-
-<form method="post" action="afficher_photo.php" >
-    <p>
-        <label>Endroit</label> : <input type="text" name="endroit" id="endroit"></br>
-        <label>Description</label> : <textarea name="description" id="description" rows ="10" cols="50"></textarea> </br>
-        <input type="submit" value="Envoyer" />
-    </p>
-</form>
-<p>nombre de photos dans import : <?php  echo photo::compteur() ;?> </p> <form><input type="button" value="supprimer" onclick="<?php photo::delete(); ?>"></form>
-
-</html>
 

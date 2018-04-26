@@ -3,7 +3,7 @@ const.inc.php
 *.JPG
 .idea
 .htpasswd
-
+.htaccess
 !pic01.jpg
 !pic02.jpg
 !pic03.jpg

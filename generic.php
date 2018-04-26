@@ -18,7 +18,7 @@ $bdd = BDD::appelBDD();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/JS/phantom/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/phantom/main.css" />
-    <link href="assets/CSS/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/phantom/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/phantom/ie8.css" /><![endif]-->
@@ -195,7 +195,7 @@ $bdd = BDD::appelBDD();
                 <?php }
                 elseif(isset($_GET['nom'])) {
                     $reponse = BDD::selectValue($bdd,$_GET['nom']);
-                    while($donnees = $reponse->fetch()){?>
+                    while($donnees = $reponse->fetch()){;?>
 
                         <header><h1><?php echo $donnees['image'];?></h1></header>
                         <p>
@@ -205,9 +205,10 @@ $bdd = BDD::appelBDD();
 
 
                                     <form action="upload.php" class="dropzone" style="display: inline-block; margin-top: 4px;border-radius: 4px"></form>
+
                                     <ul class="actions">
                                         <li>
-                                            <a id="test" class="button special small icon fa-upload">REUPLOAD PHOTO </a>
+                                            <a href="dropzone.php?value=Reupload&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php echo $donnees['country'];?>&amp;city=<?php echo $donnees['city'];?>" id="test" class="button special small icon fa-upload">REUPLOAD PHOTO </a>
 
                                         </li>
                                         <li>

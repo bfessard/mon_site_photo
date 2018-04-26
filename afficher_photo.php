@@ -7,22 +7,16 @@ include('fcts_bdd.php');
 
     // recherche le fichier et compte le nombre de photo
     $compteur= photo::compteur();
-
+    var_dump($compteur);
     
     // récupération des noms de photos avec coordonées GPS
     $ligne = 0;
     if ($compteur !== 0) {
 
-        $d = opendir(__DIR__ . '/pictures/import');
+        $tableau = photo::CreateTableImage();
 
+        for ($i = 2; $i <= $compteur+1 ; $i++) {
 
-        while ($file = readdir($d)) {
-
-            if($file !==".gitkeep") {
-                $tableau[] = $file;
-            }
-        }
-        for ($i = 1; $i <= $compteur+1 ; $i++) {
             $mystring = $tableau[$i];
 
 
@@ -47,18 +41,17 @@ include('fcts_bdd.php');
         $city = GPS::findcity($moyLat, $moyLng);
 
         $country = GPS::findcountry($moyLat, $moyLng);
-        var_dump($city);
-        var_dump($country);
+
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
         $description = $_POST['description'];
-
-        for ($ii = 0; $ii < count($image); $ii++) {
+        unset($i);
+        for ($i = 0; $i < count($image); $i++) {
             $bdd = BDD::appelBDD();
 
             BDD::addpicutreBDD($bdd,$image, $moyLat, $moyLng, $city, $country, $endroit, $description);
-            photo::compressphoto($ii,$image);
-            photo::deplacephoto($ii, $city, $country, $image);
+            photo::compressphoto($i,$image);
+            photo::deplacephoto($i, $city, $country, $image);
         }
 
     }
