@@ -195,26 +195,24 @@ $bdd = BDD::appelBDD();
                 <?php }
                 elseif(isset($_GET['nom'])) {
                     $reponse = BDD::selectValue($bdd,$_GET['nom']);
-                    while($donnees = $reponse->fetch()){;?>
-
+                    while($donnees = $reponse->fetch()){?>
                         <header><h1><?php echo $donnees['image'];?></h1></header>
                         <p>
-                                    <span class="image left">
-                                        <img src="<? echo 'pictures/'.$donnees['country'].'/'.$donnees['city'].'/'.$_GET['nom'].''; ?>" alt="">
-                                    </span>
-
-
-                                    <form action="upload.php" class="dropzone" style="display: inline-block; margin-top: 4px;border-radius: 4px"></form>
+                            <span class="image left">
+                                <img src="<?php echo 'pictures/'.$donnees['country'].'/'.$donnees['city'].'/'.$_GET['nom'].''; ?>" alt="">
+                            </span>
+                             <form action="upload.php" class="dropzone" style="display: inline-block; margin-top: 4px;border-radius: 4px"></form>
 
                                     <ul class="actions">
                                         <li>
-                                            <a href="dropzone.php?value=Reupload&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php echo $donnees['country'];?>&amp;city=<?php echo $donnees['city'];?>" id="test" class="button special small icon fa-upload">REUPLOAD PHOTO </a>
+                                            <a href="dropzone.php?value=Reupload&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php // echo $donnees['country'];?>&amp;city=<?php // echo $donnees['city'];?>" id="test" class="button special small icon fa-upload">REUPLOAD PHOTO </a>
 
                                         </li>
                                         <li>
-                                            <a href="dropzone.php?value=delete&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php echo $donnees['country'];?>&amp;city=<?php echo $donnees['city'];?>" class="button small icon fa-trash">SUPPRIMER PHOTO</a>
+                                            <a href="dropzone.php?value=delete&amp;image=<?php echo $_GET['nom'];?>&amp;country=<?php // echo $donnees['country'];?>&amp;city=<?php // echo $donnees['city'];?>" class="button small icon fa-trash">SUPPRIMER PHOTO</a>
                                         </li>
                                     </ul>
+                        </p>
 
 
                     <form method="post" action="">

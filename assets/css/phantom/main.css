@@ -1688,7 +1688,6 @@
 
 	p {
 		margin: 0 0 2em 0;
-
 	}
 
 	h1 {
@@ -2156,7 +2155,7 @@
 		border-radius: 0;
 		border-bottom: solid 1px #c9c9c9;
 		color: inherit;
-		display: inline-block;
+		display: block;
 		outline: 0;
 		padding: 0;
 		text-decoration: none;
@@ -2224,7 +2223,7 @@
 
 	textarea {
 		padding: 0;
-		min-height: 3em;
+		min-height: 3.75em;
 	}
 
 	input[type="checkbox"],
@@ -2337,7 +2336,7 @@
 		}
 
 		.image.left, .image.right {
-			width: 100%;
+			max-width: 40%;
 		}
 
 			.image.left img, .image.right img {
@@ -2367,10 +2366,9 @@
 			}
 
 		.image.main {
-			display: inline-block;
+			display: block;
 			margin: 0 0 3em 0;
-			width: 500px;
-			Background-position : center center;
+			width: 100%;
 		}
 
 			.image.main img {
@@ -2754,7 +2752,6 @@
 			.tiles article.style6 > .image:before {
 				background-color: #8499e7;
 			}
-
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);

@@ -15,11 +15,11 @@
 @media screen and (max-width: 1680px) {
 
   .dropzone{
-  min-height: 255px;
+  min-height: 250px;
     min-width:430px;
   border: 2px solid rgba(0, 0, 0, 0.3);
   background: deepskyblue; /*modification couleur fond dropzone*/
-  padding: 20px 20px;
+
   }
 
 }
