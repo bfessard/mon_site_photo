@@ -2223,7 +2223,7 @@
 
 	textarea {
 		padding: 0;
-		min-height: 3.75em;
+		min-height: 3em;
 	}
 
 	input[type="checkbox"],

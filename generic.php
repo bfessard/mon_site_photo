@@ -80,8 +80,16 @@ $bdd = BDD::appelBDD();
                         <div class="6u 12u$(xsmall)">
                         <input id="endroit" name="endroit" value="" placeholder="Endroit" type="text">
                         </div>
+                        <div class="6u 12u$(xsmall)">
                         <div class="textarea-wrapper">
-                        <textarea id="description" name="description" placeholder="Description du lieu" style="overflow: hidden; resize:none;width: 650px;height:79px "></textarea>
+                        <textarea id="description" name="description" placeholder="Description du lieu" style="overflow: hidden; resize:both"></textarea>
+                        </div>
+                        </div>
+                        <div class="6u 12u$(xsmall)">
+                            <input id="imgLat" name="imgLat" value="" placeholder="Latitude" type="text">
+                        </div>
+                        <div class="6u 12u$(xsmall)">
+                            <input id="imgLng" name="imgLng" value="" placeholder="Longitude" type="text">
                         </div>
                         <div class="12u$">
                             <ul class="actions">
@@ -215,14 +223,18 @@ $bdd = BDD::appelBDD();
                         </p>
 
 
-                    <form method="post" action="">
+                    <form method="post" action="dropzone.php?value=change">
                     <div class="row uniform">
                             <div class="4u 12u$(xsmall)">
                                 <input id="endroit" name="endroit" value="<?php echo str_replace('_', ' ', $donnees['endroit']);?>" placeholder="Endroit" type="text">
                             </div>
                             <div class="6u 12u$(xsmall)">
-                                <textarea id="description" name="description" placeholder="Description" rows="1" style="" ><?php echo $donnees['description']; ?></textarea>
+                            <div class ="textarea-wrapper">
+                                <textarea id="description" name="description" placeholder="Description" rows="1" style="overflow: hidden; resize:both" ><?php echo $donnees['description']; ?></textarea>
                             </div>
+                            </div>
+                            <input type="hidden" name="oldEndroit" id="oldEndroit" value="<?php  echo $donnees['endroit'];?>"/>
+                            <input type="hidden" name="oldDescription" id="oldDescription" value="<?php  echo $donnees['description'];?>"/>
                         <ul class="actions">
                             <li>
                                 <input class="special small icon fa-save" value="Sauvegarder modification" type="submit" style="">

@@ -2,6 +2,7 @@
 include('const.inc.php');
 include('fcts_fichier.php');
 include('fcts_bdd.php');
+var_dump($_POST['imgLat']);
 //if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
@@ -25,20 +26,32 @@ include('fcts_bdd.php');
             if (strpos($mystring, ".JPG") !== false OR strpos($mystring, ".PNG") !== false) {
                 $imageURL = "pictures/import/$tableau[$i]";
 
-
+                $image[] = $tableau[$i];
 
                 $imgLocation = GPS::get_image_location($imageURL);
 
                 if (isset($imgLocation['latitude'])) {
-                    $image[] = $tableau[$i];
+
                     $imgLat[] = $imgLocation['latitude'];
                     $imgLng[] = $imgLocation['longitude'];
+
                 }
+
             }
         }
 
-        $moyLat = GPS::moyGPS($imgLat);
-        $moyLng = GPS::moyGPS($imgLng);
+        if($_POST['imgLng']!='' and $_POST['imgLat']!=''){
+            var_dump('coucou');
+            $moyLat = floatval($_POST['imgLat']);
+            $moyLng = floatval($_POST['imgLng']);
+        }
+        else
+        {
+            var_dump($imgLat);
+            $moyLat = GPS::moyGPS($imgLat);
+            $moyLng = GPS::moyGPS($imgLng);
+        }
+
 
 
         $city = GPS::findcity($moyLat, $moyLng);
@@ -47,7 +60,7 @@ include('fcts_bdd.php');
 
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
-        $description = $_POST['description'];
+        $description = str_replace("'","\'",$_POST['description']);
         unset($i);
         for ($i = 0; $i < count($image); $i++) {
             $bdd = BDD::appelBDD();
@@ -58,6 +71,6 @@ include('fcts_bdd.php');
         }
 
     }
-header('Location: option.php');
+//header('Location: option.php');
 
 

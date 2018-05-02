@@ -82,6 +82,13 @@ class BDD{
     public static function replaceImage($bdd,$newImage, $oldImage){
         $bdd->exec('UPDATE information SET image=\''.$newImage.'\' WHERE image=\''.$oldImage.'\'');
     }
+
+    public static function replaceEndroit($bdd,$newEndroit,$oldEndroit){
+        $bdd->exec('UPDATE information SET endroit=\''.$newEndroit.'\' WHERE endroit=\''.$oldEndroit.'\'');
+    }
+    public static function replaceDescription($bdd,$newDescription,$oldDescription){
+        $bdd->exec('UPDATE information SET description=\''.$newDescription.'\' WHERE description=\''.$oldDescription.'\'');
+    }
     public static function deleteImage($bdd,$image){
         $bdd->exec('DELETE FROM information WHERE image=\''.$image.'\'');
     }
