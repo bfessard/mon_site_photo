@@ -55,9 +55,8 @@ include('fcts_bdd.php');
 
 
         $city = GPS::findcity($moyLat, $moyLng);
-
-
         $country = GPS::findcountry($moyLat, $moyLng);
+
         $city= GPS::suppr_accents($city);
         $country=GPS::suppr_accents($country);
 
