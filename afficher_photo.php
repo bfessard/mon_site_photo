@@ -56,8 +56,10 @@ include('fcts_bdd.php');
 
         $city = GPS::findcity($moyLat, $moyLng);
 
-        $country = GPS::findcountry($moyLat, $moyLng);
 
+        $country = GPS::findcountry($moyLat, $moyLng);
+        $city= GPS::suppr_accents($city);
+        $country=GPS::suppr_accents($country);
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
         $description = str_replace("'","\'",$_POST['description']);
