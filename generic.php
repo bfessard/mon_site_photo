@@ -4,7 +4,6 @@ include('fcts_bdd.php');
 include('const.inc.php');
 
 $bdd = BDD::appelBDD();
-
 ?>
 <!--
 	Phantom by HTML5 UP
@@ -99,15 +98,12 @@ $bdd = BDD::appelBDD();
                             </ul>
                         </div>
                     </div>
-                </form> <?php
-
+                </form><?php
                         break;
                     case 2:
-
                         photo::delete();
                         header('Location: option.php');
                         break;
-
                     case 3:?>
                       <section>
                             <div class="table-wrapper">
@@ -243,10 +239,7 @@ $bdd = BDD::appelBDD();
                     </div>
 
                     </form>
-                    </p>
-
-
-                <?php }} ?>
+                    </p> <?php }} ?>
 
 
 

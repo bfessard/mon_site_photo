@@ -1,11 +1,9 @@
-
 <?php
 include('fcts_fichier.php');
 include('fcts_bdd.php');
 include('const.inc.php');
 $bdd=BDD::appelBDD();
 if(isset($_GET['value'])){
-
     if( $_GET['value']=='Reupload'){
         $Newimage = photo::CreateTableImage();
 
@@ -25,8 +23,6 @@ if(isset($_GET['value'])){
         }
     }
     elseif($_GET['value']=='change'){
-
-
         $endroit = str_replace(' ','_',$_POST['endroit']);
         $description=str_replace("'","\'",$_POST['description']);
 
@@ -38,9 +34,7 @@ if(isset($_GET['value'])){
 
         BDD::replaceEndroit($bdd, $endroit, $_POST['oldEndroit']);
         }
-
     }
-
 }
 header('Location: option.php');
 ?>
