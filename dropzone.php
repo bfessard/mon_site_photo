@@ -29,7 +29,7 @@ if(isset($_GET['value'])){
 
         $endroit = str_replace(' ','_',$_POST['endroit']);
         $description=str_replace("'","\'",$_POST['description']);
-        var_dump($description);
+
         if($_POST['oldDescription']!= $_POST['description']){
             echo 'hello';
             BDD::replaceDescription($bdd, $description, $_POST['oldDescription']);

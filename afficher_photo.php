@@ -2,7 +2,7 @@
 include('const.inc.php');
 include('fcts_fichier.php');
 include('fcts_bdd.php');
-var_dump($_POST['imgLat']);
+
 //if(isset($_POST['endroit']) & isset($_POST['description'])) {
 
 
@@ -71,6 +71,6 @@ var_dump($_POST['imgLat']);
         }
 
     }
-//header('Location: option.php');
+header('Location: option.php');
 
 
