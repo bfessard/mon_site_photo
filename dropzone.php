@@ -31,11 +31,11 @@ if(isset($_GET['value'])){
         $description=str_replace("'","\'",$_POST['description']);
 
         if($_POST['oldDescription']!= $_POST['description']){
-            echo 'hello';
+
             BDD::replaceDescription($bdd, $description, $_POST['oldDescription']);
         }
         if($endroit != $_POST['oldEndroit']){
-            echo 'coucou';
+
         BDD::replaceEndroit($bdd, $endroit, $_POST['oldEndroit']);
         }
 
