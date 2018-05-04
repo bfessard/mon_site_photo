@@ -30,30 +30,43 @@ $tableauGPS=BDD::selectallBDD($bdd);
     }
 
 </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="assets/css/leaflet/leaflet.css" />
+    <script src="assets/JS/leaflet/leaflet.js"></script>
 
 
-    <link rel="stylesheet" href="assets/css/map/world_map_css.css" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <link href="featherlight-1.7.12/release/featherlight.min.css" type="text/css" rel="stylesheet"/>
-    <title>Mes voyages !!</title>
-    <style>
-
-        #map {
-            height: 100%;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
 </head>
 <body>
-<div id="map">
+<div id="mapid" style=""></div>
 <script>
-    var myLatLng;
+    var place=[];
+    var mymap = L.map('mapid').setView([49.4157, 1.3667], 13);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        style:'mapbox://styles/bfessard/cjgqjrwst00092snqp54v38t5',
+        accessToken: 'pk.eyJ1IjoiYmZlc3NhcmQiLCJhIjoiY2pncWhueGk2MDA0YjJ3cGU0b291eTB6aiJ9.J2PzC5Qmbpya0MmTZ5ezAw'
+    }).addTo(mymap);
+
+    var blueIcon= L.icon({
+        iconUrl:'pictures/leaflet/marker-icon.png',
+
+        iconSize: [25,41]
+    });
+    for(var i=0; i<data.length; i++)
+    place=data[i];
+    features =[];
+    features.push({
+        position
+    })
+    var marker = L.marker([place.lat,place.lng],{icon: blueIcon}).addTo(mymap);
+    marker.bindPopup("<b>Hello!</b><br> je suis un popup sur un marker.");
+
+
+
+   /* var myLatLng;
     var place=[];
     function initMap() {
 
@@ -120,17 +133,15 @@ $tableauGPS=BDD::selectallBDD($bdd);
     }
 
 
-
+*/
 </script>
-</div>
+
 <script src="assets/JS/GoogleMapsAPI/markerclusterer.js">
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=<?=API_KEY?>&callback=initMap">
-</script>
+
 <script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
-
-
+<script type='text/javascript' src='//blog.chibi-nah.fr/images/map/markers.json'></script>
+<script type='text/javascript' src='//blog.chibi-nah.fr/images/map/leafScript.js'></script>
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
 
 
