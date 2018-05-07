@@ -40,9 +40,9 @@ $tableauGPS=BDD::selectallBDD($bdd);
 <div id="mapid" style=""></div>
 <script>
     var place=[];
-    var mymap = L.map('mapid').setView([49.4157, 1.3667], 13);
+    var mymap = L.map('mapid').setView([49.4157, 1.3667], 3);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    L.tileLayer('https://api.mapbox.com/styles/v1/bfessard/cjgqjrwst00092snqp54v38t5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmZlc3NhcmQiLCJhIjoiY2pncWhueGk2MDA0YjJ3cGU0b291eTB6aiJ9.J2PzC5Qmbpya0MmTZ5ezAw', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
@@ -57,10 +57,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
     });
     for(var i=0; i<data.length; i++)
     place=data[i];
-    features =[];
-    features.push({
-        position
-    })
+
     var marker = L.marker([place.lat,place.lng],{icon: blueIcon}).addTo(mymap);
     marker.bindPopup("<b>Hello!</b><br> je suis un popup sur un marker.");
 
@@ -102,7 +99,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
                 var machaine = place.endroit;
 
                 machaine = machaine.replace('_',' ');
-                
+
                 var contenuInfoBulle ='<h1>'+ replaceAll(machaine,'_',' ')+ "</h1>" +
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
                     +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
