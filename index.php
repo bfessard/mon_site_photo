@@ -7,33 +7,35 @@ $bdd= BDD::appelBDD();
 $tableauGPS=BDD::selectallBDD($bdd);
 ?>
 <script>
-
-   var monTableauJs = <?=json_encode($tableauGPS);?>;
+    var monTableauJs= [];
+   monTableauJs = <?=json_encode($tableauGPS);?>;
    var API_KEY = <?=json_encode(API_KEY);?>;
    var data=[];
    var n=0;
     while(n<monTableauJs.length){
         data.push(
             {
-                id: monTableauJs[n][0],
-                country:monTableauJs[n][3],
-                city:monTableauJs[n][4],
-                lat:parseFloat(monTableauJs[n][1]),
-                lng: parseFloat(monTableauJs[n][2]),
-                endroit: monTableauJs[n][5],
-                description: monTableauJs[n][6],
-                image: monTableauJs[n][7]
+
+                country:monTableauJs[n][2],
+                city:monTableauJs[n][3],
+                lat:parseFloat(monTableauJs[n][0]),
+                lng: parseFloat(monTableauJs[n][1]),
+                endroit: monTableauJs[n][4],
+                description: monTableauJs[n][5]
             }
         );
         n++;
 
     }
 
+
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="assets/css/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.css" />
+    <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.Default.css" />
     <script src="assets/JS/leaflet/leaflet.js"></script>
-
+    <script src="assets/JS/leaflet/leaflet.markercluster.js"></script>
 
 </head>
 <body>
@@ -44,6 +46,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/bfessard/cjgqjrwst00092snqp54v38t5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYmZlc3NhcmQiLCJhIjoiY2pncWhueGk2MDA0YjJ3cGU0b291eTB6aiJ9.J2PzC5Qmbpya0MmTZ5ezAw', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        minZomm: 3,
         maxZoom: 18,
         id: 'mapbox.streets',
         style:'mapbox://styles/bfessard/cjgqjrwst00092snqp54v38t5',
@@ -55,12 +58,27 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
         iconSize: [25,41]
     });
-    for(var i=0; i<data.length; i++)
-    place=data[i];
 
-    var marker = L.marker([place.lat,place.lng],{icon: blueIcon}).addTo(mymap);
-    marker.bindPopup("<b>Hello!</b><br> je suis un popup sur un marker.");
 
+   /* var marker = L.marker([place.lat,place.lng],{icon: blueIcon}).addTo(mymap);
+    marker.bindPopup("<b>Hello!</b><br> je suis un popup sur un marker."); */
+
+    var markers = L.markerClusterGroup({spiderfyOnMaxZoom: false, showCoverageOnHover: false,disableClusteringAtZoom: 15 , zoomToBoundsOnClick: true});
+    function CreateMarkerGroup (){
+        for(var i = 0; i < data.length; i++){
+            place = data[i];
+            console.log(place.city);
+            var m = L.marker([place.lat,place.lng],{icon: blueIcon});
+            m.bindPopup(place.city);
+            markers.addLayer(m);
+        }
+
+    }
+    markers.on('clusterclick', function (a) {
+        a.layer.zoomToBounds();
+    });
+    CreateMarkerGroup();
+    mymap.addLayer(markers);
 
 
    /* var myLatLng;
@@ -133,12 +151,10 @@ $tableauGPS=BDD::selectallBDD($bdd);
 */
 </script>
 
-<script src="assets/JS/GoogleMapsAPI/markerclusterer.js">
-</script>
+
+
 
 <script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
-<script type='text/javascript' src='//blog.chibi-nah.fr/images/map/markers.json'></script>
-<script type='text/javascript' src='//blog.chibi-nah.fr/images/map/leafScript.js'></script>
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
 
 

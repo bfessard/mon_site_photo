@@ -29,7 +29,7 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
             while ($donnees = $reponse->fetch()) {
 
                 echo '<div> <img src="pictures/' . $donnees['country'] . '/' . $donnees['city'] . '/' . $donnees['image'] . '" alt="" width="1000" height="700"></div> ';
-            }; ?>
+            } ?>
 
         </div>
         <div class="navigation">

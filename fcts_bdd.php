@@ -36,19 +36,19 @@ class BDD{
     }
     public static function selectallBDD($bdd){
 
-        $reponse = $bdd->query("SELECT  * FROM information  ORDER BY  id ASC ");
+        $reponse = $bdd->query("SELECT DISTINCT lat, lng, country, city, endroit, description FROM information  ORDER BY  endroit ASC ");
+
 
         while($donnees = $reponse ->fetch())
         {
+
             $tableauGPS[] = array(
-                $donnees['id'],
                 $donnees['lat'],
                 $donnees['lng'],
                 $donnees['country'],
                 $donnees['city'],
                 $donnees['endroit'],
-                $donnees['description'],
-                $donnees['image']);
+                $donnees['description']);
 
         }
 
@@ -56,7 +56,7 @@ class BDD{
     }
 
     public static function findpictures($bdd, $variable) {
-        $reponse = $bdd->query('SELECT * FROM information WHERE endroit=\''. $variable .'\'');
+        $reponse = $bdd->query('SELECT  image FROM information  WHERE endroit=\''. $variable .'\'LIMIT 1');
         return $reponse;
     }
     public static function selectcountryBDD($bdd)
