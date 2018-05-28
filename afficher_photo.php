@@ -8,7 +8,7 @@ include('fcts_bdd.php');
 
     // recherche le fichier et compte le nombre de photo
     $compteur= photo::compteur();
-    var_dump($compteur);
+
     
     // récupération des noms de photos avec coordonées GPS
     $ligne = 0;

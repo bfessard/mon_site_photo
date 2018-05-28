@@ -5,24 +5,38 @@ include('const.inc.php');
 include('fcts_bdd.php');
 $bdd= BDD::appelBDD();
 $tableauGPS=BDD::selectallBDD($bdd);
+
+for ($i=0;$i< count($tableauGPS);$i++){
+
+   $reponse = BDD::findMiniature($bdd,$tableauGPS[$i][4]);
+   while($donnnes = $reponse ->fetch()){
+
+       $image[] = array($donnnes['image']);
+   }
+}
+
 ?>
 <script>
 
    var monTableauJs = <?=json_encode($tableauGPS);?>;
+   var imageMiniature = <?=json_encode($image); ?>;
    var API_KEY = <?=json_encode(API_KEY);?>;
    var data=[];
    var n=0;
+
     while(n<monTableauJs.length){
         data.push(
             {
-                id: monTableauJs[n][0],
-                country:monTableauJs[n][3],
-                city:monTableauJs[n][4],
-                lat:parseFloat(monTableauJs[n][1]),
-                lng: parseFloat(monTableauJs[n][2]),
-                endroit: monTableauJs[n][5],
-                description: monTableauJs[n][6],
-                image: monTableauJs[n][7]
+
+                country:monTableauJs[n][2],
+                city:monTableauJs[n][3],
+                lat:parseFloat(monTableauJs[n][0]),
+                lng: parseFloat(monTableauJs[n][1]),
+                endroit: monTableauJs[n][4],
+                description: monTableauJs[n][5],
+                image: imageMiniature[n][0]
+
+
             }
         );
         n++;
