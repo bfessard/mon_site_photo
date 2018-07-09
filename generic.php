@@ -116,15 +116,15 @@ $bdd = BDD::appelBDD();
                                         <th>Ville</th>
                                         <th>Endroit</th>
                                         <th>Description</th>
-                                        <th>Nom</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $image="DSC00037.JPG";
+
                                     foreach(BDD::selectallBDD($bdd) as $element){?>
                                         <tr>
-                                            <?php for($i=1; $i<=7;$i++){ ?>
+                                            <?php for($i=0; $i<=5;$i++){ ?>
                                                 <td><?php echo $element[$i]; ?></td>
                                            <?php }?>
                                         </tr>
