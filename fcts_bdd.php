@@ -54,9 +54,12 @@ class BDD{
 
         return $tableauGPS;
     }
-
+    public static function findMiniature($bdd,$variable){
+        $reponse = $bdd->query('SELECT image FROM information WHERE endroit=\''. $variable .'\'LIMIT 1');
+        return $reponse;
+    }
     public static function findpictures($bdd, $variable) {
-        $reponse = $bdd->query('SELECT  image FROM information  WHERE endroit=\''. $variable .'\'LIMIT 1');
+        $reponse = $bdd->query('SELECT  image,country, city  FROM information  WHERE endroit=\''. $variable .'\'');
         return $reponse;
     }
     public static function selectcountryBDD($bdd)

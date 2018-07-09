@@ -2,7 +2,7 @@
 include('const.inc.php');
 include ('fcts_bdd.php');
 
-if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
+if (isset($_GET['variable'])){
     $bdd = BDD::appelBDD();
     $reponse = BDD::findpictures($bdd, $_GET['variable']);
 
@@ -22,11 +22,12 @@ if (isset($_GET['variable'])) /*AND isset($_GET['id']))*/ {
     </head>
     <body>
 
-    <div class="slider-wrapper">
+     <div class="slider-wrapper">
         <div class="extra-slider">
             <?php
 
             while ($donnees = $reponse->fetch()) {
+
 
                 echo '<div> <img src="pictures/' . $donnees['country'] . '/' . $donnees['city'] . '/' . $donnees['image'] . '" alt="" width="1000" height="700"></div> ';
             } ?>

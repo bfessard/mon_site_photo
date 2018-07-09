@@ -460,12 +460,12 @@
 
 .leaflet-popup {
 	position: absolute;
-	text-align: center;
+	text-align: justify;
 	margin-bottom: 20px;
 	}
 .leaflet-popup-content-wrapper {
 	padding: 1px;
-	text-align: left;
+	text-align: justify;
 	border-radius: 12px;
 	}
 .leaflet-popup-content {
@@ -634,4 +634,12 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
-#mapid{height: 78em;}
+.leaflet-infoWindow-Tittle {
+	text-align: center;
+}
+#mapid{height: 80em;
+	width: auto; }
+@media screen and (max-width: 750px ){
+	#mapid{height: 690px;
+		width: auto; }
+}

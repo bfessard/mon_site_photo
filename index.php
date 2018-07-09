@@ -5,10 +5,20 @@ include('const.inc.php');
 include('fcts_bdd.php');
 $bdd= BDD::appelBDD();
 $tableauGPS=BDD::selectallBDD($bdd);
+    for ($i=0;$i< count($tableauGPS);$i++){
+
+        $reponse = BDD::findMiniature($bdd,$tableauGPS[$i][4]);
+        while($donnnes = $reponse ->fetch()){
+
+            $image[] = array($donnnes['image']);
+        }
+    }
 ?>
 <script>
     var monTableauJs= [];
+    var imageMiniature =[];
    monTableauJs = <?=json_encode($tableauGPS);?>;
+   imageMiniature = <?= json_encode($image);?>;
    var API_KEY = <?=json_encode(API_KEY);?>;
    var data=[];
    var n=0;
@@ -21,7 +31,8 @@ $tableauGPS=BDD::selectallBDD($bdd);
                 lat:parseFloat(monTableauJs[n][0]),
                 lng: parseFloat(monTableauJs[n][1]),
                 endroit: monTableauJs[n][4],
-                description: monTableauJs[n][5]
+                description: monTableauJs[n][5],
+                image: imageMiniature[n][0]
             }
         );
         n++;
@@ -31,9 +42,11 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="assets/css/map/world_map_css.css">
     <link rel="stylesheet" href="assets/css/leaflet/leaflet.css" />
     <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.css" />
     <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.Default.css" />
+
     <script src="assets/JS/leaflet/leaflet.js"></script>
     <script src="assets/JS/leaflet/leaflet.markercluster.js"></script>
 
@@ -73,7 +86,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
 
             machaine = machaine.replace('_',' ');
             var m = L.marker([place.lat,place.lng],{icon: blueIcon});
-            var contenuInfoBulle = '<h1>'+ replaceAll(machaine,'_',' ')+'</h1>'+
+            var contenuInfoBulle = '<h1 class=leaflet-infoWindow-Tittle>'+ replaceAll(machaine,'_',' ')+'</h1>'+
                 '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
                 +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
             m.bindPopup(contenuInfoBulle);
@@ -158,11 +171,12 @@ $tableauGPS=BDD::selectallBDD($bdd);
 */
 </script>
 
-
-
-
 <script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
+<script src="featherlight-1.7.12/release/featherlight.gallery.min.js" type="text/javascript"></script>
+
+
+
 
 
 </body>
