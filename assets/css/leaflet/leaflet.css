@@ -637,9 +637,6 @@
 .leaflet-infoWindow-Tittle {
 	text-align: center;
 }
-#mapid{height: 80em;
+#mapid{height: 79em;
 	width: auto; }
-@media screen and (max-width: 750px ){
-	#mapid{height: 690px;
-		width: auto; }
-}
+
