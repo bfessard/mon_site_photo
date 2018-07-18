@@ -225,7 +225,8 @@ class option{
 
                 $elements[] = array('href' => 'generic.php?country=' . $country . '&amp;city=' . $donnees['city'] . '',
                     'nom' => strtoupper($donnees['city']),
-                    'use' => 'Voir et modifier les photos : ' . strtoupper($donnees['city']) . '');
+                    'use' => 'Voir et modifier les photos : ' . strtoupper($donnees['city']) . '')
+;
             }
 
         return $elements;

@@ -46,7 +46,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
     <link rel="stylesheet" href="assets/css/leaflet/leaflet.css" />
     <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.css" />
     <link rel="stylesheet" href="assets/css/leaflet/MarkerCluster.Default.css" />
-
+    <link rel="stylesheet" href="featherlight-1.7.12/release/featherlight.min.css" />
     <script src="assets/JS/leaflet/leaflet.js"></script>
     <script src="assets/JS/leaflet/leaflet.markercluster.js"></script>
 
@@ -100,83 +100,11 @@ $tableauGPS=BDD::selectallBDD($bdd);
     CreateMarkerGroup();
     mymap.addLayer(markers);
 
-
-   /* var myLatLng;
-    var place=[];
-    function initMap() {
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-            'zoom': 3,
-            'zoomControl': false,
-            'minZoom': 3,
-            'maxZoom': 16,
-            'center': {lat: 49.4167, lng: 1.3667}
-
-        });
-        var placeMarkerList = {};
-
-
-        for (var i = 0; i < data.length; i++) {
-
-            place = data[i];
-            features = [];
-            var latLng = new google.maps.LatLng(place.lat, place.lng);
-            features.push({
-                position: latLng
-            });
-
-            features.forEach(function (feature) {
-                var marker = new google.maps.Marker({
-                    position: feature.position,
-                    map: map,
-                    title: place.endroit
-                });
-                function replaceAll(machaine, chaineARemaplacer, chaineDeRemplacement) {
-                    return machaine.replace(new RegExp(chaineARemaplacer, 'g'),chaineDeRemplacement);
-                }
-                var machaine = place.endroit;
-
-                machaine = machaine.replace('_',' ');
-
-                var contenuInfoBulle ='<h1>'+ replaceAll(machaine,'_',' ')+ "</h1>" +
-                '<img id="lettrineImage" src="pictures/' + place.country + '/' + place.city +'/'+ place.image +'"  title="'+place.endroit+'" />'
-                    +'<p class="propertyWindow">'+ place.description +'</p>' + '<button href="#" data-featherlight="diapo.php?variable='+place.endroit+'">Voir les photos</button>';
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: contenuInfoBulle
-                });
-
-                marker.addListener('click', function() {
-                    infowindow.open(map,marker);
-                });
-
-                if (!placeMarkerList.hasOwnProperty(place.country)) {
-                    placeMarkerList[place.country] = [];
-                }
-                placeMarkerList[place.country].push(marker);
-            });
-
-        }
-        for (var country in placeMarkerList) {
-            if (placeMarkerList.hasOwnProperty(country)) {
-                var markerCluster = new MarkerClusterer(map, placeMarkerList[country], {
-                    maxZoom: 14,
-                    imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m'
-                });
-            }
-        }
-    }
-
-
-*/
 </script>
 
 <script type="text/javascript" src="assets/JS/AJAX/libs/Jquery/3.3.1/JQuery.min.js"> </script>
 <script src="featherlight-1.7.12/release/featherlight.min.js" type="text/javascript"></script>
 <script src="featherlight-1.7.12/release/featherlight.gallery.min.js" type="text/javascript"></script>
-
-
-
 
 
 </body>
