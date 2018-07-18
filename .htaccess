@@ -1,4 +1,4 @@
-<Files bloip.php>
+<Files option.php>
 AuthName "Page d'administration protégée"
 
 AuthType Basic
