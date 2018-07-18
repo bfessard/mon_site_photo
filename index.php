@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <?php error_reporting(E_ALL);
 include('const.inc.php');
