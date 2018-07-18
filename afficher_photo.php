@@ -39,12 +39,12 @@ include('fcts_bdd.php');
 
             }
         }
-
         if($_POST['imgLng']!='' and $_POST['imgLat']!=''){
-            var_dump('coucou');
+
             $moyLat = floatval($_POST['imgLat']);
             $moyLng = floatval($_POST['imgLng']);
         }
+
         else
         {
             var_dump($imgLat);

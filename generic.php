@@ -13,7 +13,13 @@ $bdd = BDD::appelBDD();
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Generic - Phantom by HTML5 UP</title>
+    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website of baptiste" />
+    <meta property="og:title"         content="ceci est un essai" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/JS/phantom/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/phantom/main.css" />
@@ -116,6 +122,7 @@ $bdd = BDD::appelBDD();
                                         <th>Ville</th>
                                         <th>Endroit</th>
                                         <th>Description</th>
+                                        <th>image</th>
 
                                     </tr>
                                     </thead>
@@ -124,7 +131,8 @@ $bdd = BDD::appelBDD();
 
                                     foreach(BDD::selectallBDD($bdd) as $element){?>
                                         <tr>
-                                            <?php for($i=0; $i<=5;$i++){ ?>
+                                            <?php for($i=0; $i<=6;$i++){ ?>
+
                                                 <td><?php echo $element[$i]; ?></td>
                                            <?php }?>
                                         </tr>
@@ -153,6 +161,10 @@ $bdd = BDD::appelBDD();
                     </span>
                     <a href="<?php echo $element['href'];?>">
                         <h2><?php echo $element['nom']; ?></h2>
+                        <div class="fb-share-button"
+                             data-href="http://www.baptistefessard.fr/mesvoyages?city=<?php echo $element['nom']; ?>"
+                             data-layout="button">
+                        </div>
                         <div class ="content">
                             <p><?php echo $element['use']; ?></p>
                         </div>
@@ -247,6 +259,15 @@ $bdd = BDD::appelBDD();
 </div>
 
 <!-- Scripts -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.0';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
 <script src="assets/JS/phantom/jquery.min.js"></script>
 <script src="assets/JS/phantom/skel.min.js"></script>
 <script src="assets/JS/phantom/util.js"></script>

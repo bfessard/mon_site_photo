@@ -36,12 +36,13 @@ class BDD{
     }
     public static function selectallBDD($bdd){
 
-        $reponse = $bdd->query("SELECT DISTINCT lat,lng,country, city,endroit,description FROM information ORDER BY lat ASC");
+        $reponse = $bdd->query("SELECT DISTINCT lat, lng, country, city, endroit, description FROM information  ORDER BY  endroit ASC ");
+
 
         while($donnees = $reponse ->fetch())
         {
-            $tableauGPS[] = array(
 
+            $tableauGPS[] = array(
                 $donnees['lat'],
                 $donnees['lng'],
                 $donnees['country'],
@@ -53,12 +54,12 @@ class BDD{
 
         return $tableauGPS;
     }
-    public static function findMiniature ($bdd,$variable){
-        $reponse = $bdd ->query('SELECT image FROM information WHERE endroit =\''.$variable.'\' LIMIT 1 ');
+    public static function findMiniature($bdd,$variable){
+        $reponse = $bdd->query('SELECT image FROM information WHERE endroit=\''. $variable .'\'LIMIT 1');
         return $reponse;
     }
     public static function findpictures($bdd, $variable) {
-        $reponse = $bdd->query('SELECT * FROM information WHERE endroit=\''. $variable .'\'');
+        $reponse = $bdd->query('SELECT  image,country, city  FROM information  WHERE endroit=\''. $variable .'\'');
         return $reponse;
     }
     public static function selectcountryBDD($bdd)
