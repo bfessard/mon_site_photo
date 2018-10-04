@@ -96,6 +96,11 @@ class BDD{
         $bdd->exec('DELETE FROM information WHERE image=\''.$image.'\'');
     }
 
+    public static function findPositionGps($bdd,$city)
+    {
+        $reponse = $bdd->query('SELECT DISTINCT  lat, lng FROM information WHERE city=\''. $city .'\'');
+        return $reponse;
+    }
 }
 
 
