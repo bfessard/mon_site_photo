@@ -26,7 +26,7 @@ $tableauGPS=BDD::selectallBDD($bdd);
             $posLat = $donnees['lat'];
 
         }
-        $posZoom = 13;
+        $posZoom = 14;
     }
     else {
         $posLng = 49.4157;
